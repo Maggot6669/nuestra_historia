@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Nuestra historia ♥</title>
-
     <!-- Tipografías: cursiva romántica + moderna -->
     <link
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap"
@@ -403,6 +402,58 @@
           0s
         ); /* Usaremos delay dinámico para cada imagen */
       }
+
+      /* Tú y Yo */
+      .you-me-container {
+        margin-top: 30px;
+        text-align: center;
+        background: var(--panel);
+        padding: 25px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: var(--card-shadow);
+      }
+
+      .you-me-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        margin-top: 15px;
+      }
+
+      .person img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .person img:hover {
+        transform: scale(1.1);
+      }
+
+      .and-text {
+        font-size: 28px;
+        font-weight: bold;
+        color: var(--pink-1);
+        font-family: "Great Vibes", cursive;
+      }
+
+      .label {
+        margin-top: 8px;
+        font-size: 16px;
+        color: #ffd6e0;
+      }
+
+      .always-text {
+        margin-top: 15px;
+        font-size: 20px;
+        color: #ffb3c6;
+        font-family: "Great Vibes", cursive;
+      }
     </style>
   </head>
   <body>
@@ -421,6 +472,63 @@
         <button class="btn" id="play-toggle">Reproducir música</button>
       </nav>
     </header>
+
+    <img src="img/jj.png" class="decoracion izquierda" />
+    <img src="img/a1.png" class="decoracion izquierda decor1" />
+    <img src="img/rosa.png" class="decoracion derecha decor2" />
+    <img src="img/a2.png" class="decoracion derecha decor3" />
+
+    <style>
+      .decoracion {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        opacity: 0.85;
+        z-index: 10;
+        animation: flotar 4s ease-in-out infinite; /* 👈 animación aplicada */
+      }
+
+      /* Lado izquierdo */
+      .izquierda {
+        left: 15px;
+      }
+
+      /* Lado derecho */
+      .derecha {
+        right: 15px;
+      }
+
+      /* Animación de flotación */
+      @keyframes flotar {
+        0% {
+          transform: translateY(-50%) translateY(0);
+        }
+        50% {
+          transform: translateY(-50%) translateY(-15px); /* sube */
+        }
+        100% {
+          transform: translateY(-50%) translateY(0); /* baja */
+        }
+      }
+
+      .decor1 {
+        top: 81%;
+        left: 0px;
+      }
+      .decor2 {
+        top: 79%;
+        right: 30px;
+      }
+      .decor3 {
+        bottom: 70%;
+        right: 30px;
+      }
+      .decor4 {
+        bottom: 30%;
+        right: 80px;
+      }
+    </style>
 
     <main class="container">
       <div class="hero">
@@ -461,17 +569,64 @@
             <strong class="small">Dia que nos conocimos:</strong>
             <div style="margin-top: 8px">1/10/25 💖</div>
           </div>
+
+          <div
+            style="
+              padding: 12px;
+              border-radius: 12px;
+              background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0.02),
+                transparent
+              );
+              border: 1px solid rgba(255, 255, 255, 0.03);
+              text-align: center;
+            "
+          >
+            <strong class="small">Días juntos:</strong>
+            <div
+              id="dias-juntos"
+              style="margin-top: 8px; font-size: 18px; color: #ffd6e0"
+            >
+              Calculando... 💕
+            </div>
+          </div>
+
+          <script>
+            const fechaInicio = new Date("2025-10-01");
+
+            function calcularDiasJuntos() {
+              const hoy = new Date();
+              const diferencia = hoy - fechaInicio;
+              const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+              document.getElementById(
+                "dias-juntos"
+              ).textContent = `${dias} días 💖`;
+            }
+
+            calcularDiasJuntos();
+          </script>
         </div>
       </div>
 
       <section id="story" class="card">
         <h3 class="section-title">Nuestra historia</h3>
         <div class="story-text" id="story-text">
-          Desde el primer dia que hablamos, supe que tu eras una persona
-          especial, esta pagina web te la hago con todo el cariño que puedo
-          darte, espero que te guste, la idea es que aqui vallamos recopilando
-          momentos especiales, y que sea como una capsula del tiempo dkajdka, no
-          se, pero espero que te guste.<3
+          💖Carta #1<br>          Desde el primer dia que hablamos, supe que tu eras una
+          persona especial, esta pagina web te la hago con todo el cariño que
+          puedo darte, espero que te guste, la idea es que aqui vallamos
+          recopilando momentos especiales, y que sea como una capsula del tiempo
+          dkajdka, no se, pero espero que te guste.<3
+        </div>
+        <br />
+        <div class="story-text" id="story-text">
+          💖 Carta #2<br>          Cada versión de esta página lleva mucho amor y esfuerzo.
+          Cada una representa el empeño que pongo para demostrarte, cada vez
+          más, el gran amor y aprecio que te tengo. Estoy muy enamorado de ti:
+          de tus ojos, de tu boca, de tus labios, de tu pelo, de tu manera de
+          tratarme, de tu forma de amarme… Estoy enamorado de todo de ti,
+          incluso de cosas que no puedo mencionar aquí alsjsajd. Te amo, mi
+          amor. Jamás dejaré de hacerlo. JAMÁS. Te amo.<3
         </div>
 
         <div
@@ -548,14 +703,33 @@
             <p class="momentos-desc">Mi otro oufit favorito</p>
           </div>
           <div class="momentos-item">
-            <img src="img/6.jpg" alt="Momento 1" />
-            <p class="momentos-desc">Mi fondo de pantalla</p>
+            <img src="img/fondo.jpg" alt="Momento 1" />
+            <p class="momentos-desc">Mi nuevo fondo de pantalla</p>
           </div>
           <div class="momentos-item">
             <img src="img/7.jpg" alt="Momento 1" />
             <p class="momentos-desc">La primera foto que me enviaste</p>
           </div>
         </div>
+      </section>
+
+      <section class="card you-me-container">
+        <h3 class="section-title">Tú y Yo</h3>
+        <div class="you-me-content">
+          <div class="person">
+            <img src="img/ella.jpg" alt="Yo" />
+            <p class="label">You</p>
+          </div>
+
+          <div class="and-text">AND</div>
+
+          <div class="person">
+            <img src="img/yo.jpg" alt="Ella" />
+            <p class="label">Me</p>
+          </div>
+        </div>
+
+        <p class="always-text">Always Forever 💞</p>
       </section>
 
       <section class="card" id="settings">
